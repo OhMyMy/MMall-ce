@@ -1,0 +1,34 @@
+/*
+* @Author: Administrator
+* @Date:   2017-09-25 20:53:37
+* @Last Modified by:   Administrator
+* @Last Modified time: 2017-09-26 00:48:05
+*/
+
+.header .logo{
+    position: absolute;
+    display: block;
+    left:50px;
+    top:34px;
+    font-size: 36px;
+    color: #c60023;
+    font-weight: bold;
+}
+.header .search-con{
+    padding: 40px 0 30px 250px;
+}
+.header .search-con .search-input{
+    width: 530px;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 10px;
+    font-size: 23px;
+    border:2px solid #c60023;
+}
+
+/* 搜索框与按钮不对齐 html中的空格导致 */
+.header .search-con .search-btn{
+    position: absolute;
+    height: 43px;
+    width: 80px;
+}
