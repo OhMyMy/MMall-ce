@@ -2,7 +2,7 @@
 * @Author: Administrator
 * @Date:   2017-09-25 20:53:37
 * @Last Modified by:   Administrator
-* @Last Modified time: 2017-09-26 00:48:05
+* @Last Modified time: 2017-10-02 00:17:00
 */
 
 .header .logo{
@@ -13,6 +13,7 @@
     font-size: 36px;
     color: #c60023;
     font-weight: bold;
+    text-decoration: none;
 }
 .header .search-con{
     padding: 40px 0 30px 250px;
@@ -29,6 +30,17 @@
 /* 搜索框与按钮不对齐 html中的空格导致 */
 .header .search-con .search-btn{
     position: absolute;
-    height: 43px;
+    height: 44px;
     width: 80px;
+}
+
+/* 面包屑导航 */
+.crumb{
+    margin-bottom: 15px;
+    height: 50px;
+    line-height: 50px;
+    background: #eee;
+    color: #888;
+    font-size: 14px;
+    border-top: 2px solid #c60023;
 }

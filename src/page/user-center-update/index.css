@@ -1,0 +1,25 @@
+/*
+* @Author: Administrator
+* @Date:   2017-10-02 00:02:18
+* @Last Modified by:   Administrator
+* @Last Modified time: 2017-10-02 01:15:52
+*/
+.from-line{
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.from-line .label{
+    display: inline-block;
+    width: 60px;
+}
+.from-line .input{
+    height: 25px;
+    line-height: 25px;
+    width: 200px;
+    font-size: 14px;
+    padding-left: 2px;
+    color: #555;
+}
