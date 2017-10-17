@@ -2,7 +2,7 @@
 * @Author: Administrator
 * @Date:   2017-09-24 23:17:36
 * @Last Modified by:   Administrator
-* @Last Modified time: 2017-09-26 00:34:48
+* @Last Modified time: 2017-10-17 19:32:25
 */
 /*css reset*/
 *{
@@ -33,6 +33,24 @@ input[type='checkbox']{
     width: 1080px;
     margin:0 auto;
     position: relative;
+    overflow: hidden;
+}
+/* panel */
+.panel{
+    
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #fff;
+}
+.panel .panel-title{
+    padding: 10px;
+    font-size: 14px;
+    color: #666;
+    font-weight: bold;
+    border-bottom: 1px solid #eee;
+}
+.panel .panel-body{
+    padding: 10px;
     overflow: hidden;
 }
 /* 全局通用样式 */

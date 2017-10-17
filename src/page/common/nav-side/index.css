@@ -2,7 +2,7 @@
 * @Author: Administrator
 * @Date:   2017-09-26 01:31:46
 * @Last Modified by:   Administrator
-* @Last Modified time: 2017-09-26 23:40:04
+* @Last Modified time: 2017-10-02 00:38:56
 */
 /* 导航主体 */
 .nav-side{
@@ -21,7 +21,7 @@
     color: #c60023;
 }
 /* 右侧内容区 */
-.content .with-nav{
+.content.with-nav{
     float: left;
     width: 950px;
 }
