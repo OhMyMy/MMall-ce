@@ -25,6 +25,6 @@
     </div>
 
     
-    <a href="./user-center-update.html" class="btn btn-submit">编辑</a>
+    <a class="btn btn-edit">修改</a>
     
 </div>

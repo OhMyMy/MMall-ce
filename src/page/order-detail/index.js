@@ -2,12 +2,13 @@
 * @Author: Administrator
 * @Date:   2017-10-17 06:48:33
 * @Last Modified by:   Administrator
-* @Last Modified time: 2017-10-17 17:46:00
+* @Last Modified time: 2017-10-20 21:43:44
 */
 
 require('./index.css');
 require('page/common/nav/index.js');
 require('page/common/header/index.js');
+require('util/showTip/index.js');
 
 var navSide = require('page/common/nav-side/index.js');;
 var _mm = require('util/mm.js');
@@ -33,14 +34,22 @@ var page = {
         var _this = this;
         //取消订单
         $(document).on('click', '.order-cancel', function(){
-            if(window.confirm('确定要取消该订单吗?')){
+            $.showTips.Confirm("确定要取消该订单吗?", function(){
+               _order.cancelOrder(_this.data.orderNumber, function(res){
+                    $.showTips.Alert("该订单取消成功");
+                    _this.loadDetail();
+                }, function(errMsg){
+                    $.showTips.Alert(errMsg);
+                })
+            });
+            /*if(window.confirm('确定要取消该订单吗?')){
                 _order.cancelOrder(_this.data.orderNumber, function(res){
                 _mm.successTips('该订单取消成功');
                     _this.loadDetail();
                 }, function(errMsg){
                     _mm.errorTips(errMsg);
                 })
-            }
+            }*/
             
         });
     },

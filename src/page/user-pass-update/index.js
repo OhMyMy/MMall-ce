@@ -2,12 +2,14 @@
 * @Author: Administrator
 * @Date:   2017-10-02 21:52:15
 * @Last Modified by:   Administrator
-* @Last Modified time: 2017-10-06 22:15:13
+* @Last Modified time: 2017-10-21 10:57:07
 */
 
 require('./index.css');
 require('page/common/nav/index.js');
 require('page/common/header/index.js');
+require('util/showTip/index.js');
+
 var navSide         = require('page/common/nav-side/index.js');
 var _mm             = require('util/mm.js');
 var _user           = require('service/user-service.js');
@@ -31,20 +33,20 @@ var page = {
                 passwordNew     : $.trim($('#password-new').val()),
                 passwordConfirm : $.trim($('#password-confirm').val())
             },
-            validateResult = _this.validateForm(userInfo);
+            validateResult = _this.validateFrom(userInfo);
             if(validateResult.status){
                 // 更改用户密码
                 _user.updatePassword({
                     passwordOld : userInfo.password,
                     passwordNew : userInfo.passwordNew
                 }, function(res, msg){
-                    _mm.successTips(msg);
+                    $.showTips.Alert(msg);
                 }, function(errMsg){
-                    _mm.errorTips(errMsg);
+                    $.showTips.Alert(errMsg);
                 });
             }
             else{
-                _mm.errorTips(validateResult.msg);
+                $.showTips.Alert(validateResult.msg);
             }
         });
     },

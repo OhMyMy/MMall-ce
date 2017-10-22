@@ -2,7 +2,7 @@
 * @Author: Administrator
 * @Date:   2017-10-09 20:42:10
 * @Last Modified by:   Administrator
-* @Last Modified time: 2017-10-15 18:10:29
+* @Last Modified time: 2017-10-18 02:25:51
 */
 require('./index.css');
 require('page/common/nav/index.js');
@@ -45,10 +45,10 @@ var page = {
                 $pCount.val(currCount < maxCount ? currCount + 1 : maxCount);
             }
             else if(type === 'minus'){
-                $pCount.val(currCount > maxCount ? currCount - 1 : 1);
+                $pCount.val(currCount > mixCount ? currCount - 1 : 1);
             }
-
         });
+
         $(document).on('click', '.cart-add', function(){
             _cart.addToCart({
                 productId : _this.data.productId,
@@ -74,7 +74,7 @@ var page = {
             html = _mm.renderHtml(templateIndex, res);
             $pageWrap .html(html);
         }, function(errMsg){
-            $pageWrap.html('<p class="err-tip">商品的详情数据为空</p>');
+            $pageWrap.html('<p class="err-tip">商品的详情数据加载失败</p>');
         });
     },
     // 数据匹配

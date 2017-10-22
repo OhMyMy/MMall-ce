@@ -2,7 +2,7 @@
 * @Author: Administrator
 * @Date:   2017-09-25 20:53:37
 * @Last Modified by:   Administrator
-* @Last Modified time: 2017-10-02 00:17:00
+* @Last Modified time: 2017-10-18 01:33:57
 */
 
 .header .logo{
@@ -16,22 +16,25 @@
     text-decoration: none;
 }
 .header .search-con{
-    padding: 40px 0 30px 250px;
+    padding: 40px 0 30px 320px;
 }
 .header .search-con .search-input{
-    width: 530px;
+    width:420px;
     height: 40px;
     line-height: 40px;
     padding-left: 10px;
+    color: #888;
     font-size: 23px;
     border:2px solid #c60023;
+    border-radius: 8px 0 0 8px;
 }
 
 /* 搜索框与按钮不对齐 html中的空格导致 */
 .header .search-con .search-btn{
     position: absolute;
     height: 44px;
-    width: 80px;
+    width: 60px;
+    border-radius: 0 8px 8px 0;
 }
 
 /* 面包屑导航 */

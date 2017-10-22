@@ -2,11 +2,12 @@
 * @Author: Administrator
 * @Date:   2017-10-10 23:40:32
 * @Last Modified by:   Administrator
-* @Last Modified time: 2017-10-13 11:06:09
+* @Last Modified time: 2017-10-20 21:13:42
 */
 
 require('./index.css');
 require('page/common/header/index.js');
+require('util/showTip/index.js');
 
 var _mm = require('util/mm.js');
 var _cart = require('service/cart-service.js');
@@ -78,7 +79,7 @@ var page = {
                 newCount    = 0;
             if(type === 'plus'){
                 if(currCount >= maxCount){
-                    _mm.errorTips('该商品数量已达上限');
+                    $.showTips.Alert("该商品数量已达上限");
                     return;
                 }
                 newCount = currCount + 1;
@@ -100,35 +101,37 @@ var page = {
         });
         //删除单个商品
         $(document).on('click','.cart-delete',function(){
-            if(window.confirm('确认要删除该商品？')){
-                var productId = $(this).parents('.cart-table')
+            var productId = $(this).parents('.cart-table')
                     .data('product-id');
+            $.showTips.Confirm("确认要删除该商品?", function(){
                 _this.delectCartProduct(productId);
-            }
+            });
         });
+        
         //删除选中商品
         $(document).on('click','.delete-selected',function(){
-            if(window.confirm('确认要删除选中的商品？')){
-                var arrProductIds = [],
-                    $selectedItem = $('.cart-select:checked');
-                //循环查找选中已选
-                for(var i = 0, iLength = $selectedItem.length;i < iLength; i++){
-                    arrProductIds.push($($selectedItem[i]).parents('.cart-table').data('product-id'));
-                }
-                if(arrProductIds.length){
-                    _this.delectCartProduct(arrProductIds.join(','));
-                }else{
-                    _mm.errorTips('你还没选中要删除的商品');
-                }              
+            var arrProductIds = [],
+                $selectedItem = $('.cart-select:checked');
+            for(var i = 0, iLength = $selectedItem.length;i < iLength; i++){
+                arrProductIds.push($($selectedItem[i]).parents('.cart-table').data('product-id'));
             }
+            if(arrProductIds.length){
+                $.showTips.Confirm("确认要删除该商品?", function(){
+                    _this.delectCartProduct(arrProductIds.join(','));
+                });
+            }else{
+                $.showTips.Alert("你还没选中要删除的商品！");
+            }    
         });
+
         //提交购物车
         $(document).on('click', '.btn-submit', function(){
             //判断总价大于零
             if(_this.data.cartInfo && _this.data.cartInfo.cartTotalPrice > 0){
                 window.location.href = './order-confirm.html';
             }else{
-                _mm.errorTips('请选择商品后再提交');
+                /*_mm.errorTips('请选择商品后再提交');*/
+                $.showTips.Alert("请选择商品后再提交！");
             }
         });
          

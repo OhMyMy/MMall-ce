@@ -2,7 +2,7 @@
 * @Author: Administrator
 * @Date:   2017-09-24 19:19:16
 * @Last Modified by:   Administrator
-* @Last Modified time: 2017-10-05 23:49:14
+* @Last Modified time: 2017-10-21 11:06:20
 */
 //Js工具封装
 var Hogan = require('hogan.js');
@@ -85,7 +85,8 @@ var _mm = {
     },
     goHome : function(){
         window.location.href = './index.html';
-    }
+    },
+
 };
 //暴露输出
 module.exports = _mm;
