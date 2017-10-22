@@ -2,7 +2,7 @@
 * @Author: Administrator
 * @Date:   2017-09-26 23:43:18
 * @Last Modified by:   Administrator
-* @Last Modified time: 2017-10-17 20:51:06
+* @Last Modified time: 2017-10-20 14:12:45
 */
 require('./index.css');
 
@@ -16,7 +16,6 @@ $(function(){
     if(type === 'payment'){
         var orderNumber  = _mm.getUrlParam('orderNumber'),
             $orderNumber = $element.find('.order-number');
-        console.log(orderNumber);
         $orderNumber.attr('href', $orderNumber.attr('href') + orderNumber);   
     }
     //显示对应的提示元素

@@ -2,11 +2,12 @@
 * @Author: Administrator
 * @Date:   2017-10-13 11:06:57
 * @Last Modified by:   Administrator
-* @Last Modified time: 2017-10-16 02:21:00
+* @Last Modified time: 2017-10-22 02:44:56
 */
 require('./index.css');
 require('page/common/header/index.js');
 require('page/common/nav/index.js');
+require('util/showTip/index.js');
 
 var _mm = require('util/mm.js');
 var _order = require('service/order-service.js');
@@ -45,10 +46,10 @@ var page = {
                 }, function(res){
                     window.location.href = './payment.html?orderNumber=' + res.orderNo;
                 }, function(errMsg){
-                    _mm.errorTips(errMsg);
+                    $.showTips.Alert("errMsg");
                 });
             }else{
-                _mm.errorTips('请选择地址后再提交');
+                $.showTips.Alert("请选择地址后再提交！");
             }
         });
         //添加地址
@@ -74,7 +75,7 @@ var page = {
                     } 
                 });
             }, function(errMsg){
-                _mm.errorTips(errMsg)
+                $.showTips.Alert(errMsg);
             });        
         });
         //删除地址
@@ -82,13 +83,20 @@ var page = {
             //防止点击删除时 其他选项失去active
             e.stopPropagation();
             var id = $(this).parents('.address-item').data('id');
-            if(window.confirm('确认要删除该地址吗?')){
+            $.showTips.Confirm("确认要删除该地址吗?", function(){
+                _address.deleteAddress(id, function(res){
+                    _this.loadAddressList();
+                }, function(errMsg){
+                    $.showTips.Alert(errMsg);
+                });
+            });
+            /*if(window.confirm('确认要删除该地址吗?')){
                 _address.deleteAddress(id, function(res){
                     _this.loadAddressList();
                 }, function(errMsg){
                     _mm.errorTips(errMsg);
                 });
-            }
+            }*/
         });
     },
     loadAddressList : function(){

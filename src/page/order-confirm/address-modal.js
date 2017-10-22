@@ -2,8 +2,10 @@
 * @Author: Administrator
 * @Date:   2017-10-14 19:29:21
 * @Last Modified by:   Administrator
-* @Last Modified time: 2017-10-16 01:38:46
+* @Last Modified time: 2017-10-22 01:46:25
 */
+
+require('util/showTip/index.js');
 
 var _mm = require('util/mm.js');
 var _address = require('service/address-service.js');
@@ -35,28 +37,28 @@ var addressModal = {
             //使用新地址 ，且验证通过
             if(!isUpdate && receiverInfo.status){
                 _address.save(receiverInfo.data, function(res){
-                    _mm.successTips('地址添加成功');
+                    $.showTips.Alert("地址添加成功！");
                     _this.hide();
                     typeof _this.option.onSuccess === 'function'
                     && _this.option.onSuccess(res);
                 },function(errMsg){
-                    _mm.errorTips(errMsg);
+                    $.showTips.Alert(errMsg);
                 });
             }
             //更新收件人 且验证通过
             else if(isUpdate && receiverInfo.status){
                 _address.updata(receiverInfo.data, function(res){
-                    _mm.successTips('地址修改成功');
+                    $.showTips.Alert("地址修改成功！");
                     _this.hide();
                     typeof _this.option.onSuccess === 'function'
                     && _this.option.onSuccess(res);
                 },function(errMsg){
-                    _mm.errorTips(errMsg);
+                    $.showTips.Alert(errMsg);
                 });
             }
             //验证不通过
             else{
-                _mm.errorTips(receiverInfo.errMsg || '好像哪里不对啦！');
+                $.showTips.Alert(receiverInfo.errMsg || '好像哪里不对啦！');
             }
         });
         //点击内容区时 阻止事件冒泡 不关闭弹窗
