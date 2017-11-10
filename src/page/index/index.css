@@ -2,39 +2,121 @@
 * @Author: Administrator
 * @Date:   2017-09-23 19:57:00
 * @Last Modified by:   Administrator
-* @Last Modified time: 2017-10-05 00:06:47
+* @Last Modified time: 2017-11-10 12:18:45
 */
 
 /* 左侧导航 */
 .keyword-list{
     float: left;
-    width: 240px;
+    width: 238px;
     height: 350px;
     padding: 10px 0;
     margin-right: 10px;
-    background: #666;
-    color: #fff
+    background: #c60023;
+    color: #fff;
+    padding-left: 2px;
 }
 
-.keyword-list .keyword-item{
-    padding-left: 10px;
+.keyword-list .cate-tit{
     height: 35px;
     line-height: 35px;
+    padding: 0 2px;
     font-size: 14px;
+    overflow: hidden;
 }
 
-.keyword-list .keyword-item .link{
+.keyword-item .cate-tit .link{
     color: #fff;
-    margin-right: 6px;
+    margin: 0 6px;
 }
-
-.keyword-list .keyword-item:hover{
-    background: #999;
+.keyword-item:hover .cate-tit{
+    background: #f9f6f6;
 }
-.keyword-list .keyword-item .link:hover{
+.keyword-item:hover .cate-tit .link{
     color: #c60023;
 }
+.keyword-item:hover .cate-part{
+    display: block;
+}
 
+.keyword-item .cate-tit .link:hover{
+    text-decoration: underline;
+}
+
+
+/* 右侧 */
+.cate-part{
+    display: none;
+    position: absolute;
+    top:0;
+    left: 240px;
+    width: 700px;
+    height: 350px;
+    background: #f9f6f6;
+    padding: 20px 10px 0 10px;
+    z-index: 1;
+    color: #000;
+}
+
+.cate-part .cate-channel{
+    padding-left: 20px;
+}
+.cate-part .cate-detail{
+    padding: 10px 20px 0 20px;
+}
+.cate-part .cate-channel .link{
+    display: inline-block;
+    margin-right: 10px;
+    padding: 0 10px;
+    height: 24px;
+    line-height: 24px;
+    color: #fff;
+    background: #c72441;
+}
+.cate-part .cate-channel .link:hover{
+    background: #c60023;
+}
+.cate-part .cate-channel .link i{
+    margin-left:4px;
+}
+
+.cate-part .cate-detail-item{
+    position: relative;
+    padding-left: 80px;
+    margin:12px 0; 
+}
+
+.cate-part .cate-detail-item a:hover,
+.cate-part .cate-detail .cate-detail-tit a:hover{
+    color: #c60023;
+} 
+
+.cate-part .cate-detail .cate-detail-tit{
+    position: absolute;
+    width: 70px;
+    left:0;
+    text-align: right;  
+}
+.cate-part .cate-detail .cate-detail-tit a{
+    font-weight: 700;
+    color: #656565;
+}
+.cate-part .cate-detail-tit i{
+    margin-left:8px;
+}
+.cate-part .cate-detail-con{
+   
+}
+.cate-part .cate-detail-con a{
+    display: inline-block;
+    text-decoration: none;
+    color: #656565;
+    border-left:1px solid rgba(0,0,0,0.1);
+    height: 16px;
+    line-height: 16px;
+    padding:0 6px;
+    margin-bottom: 8px;
+}
 /* banner */
 .banner-con{
     float: left;

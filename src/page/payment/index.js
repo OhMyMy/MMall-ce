@@ -2,7 +2,7 @@
 * @Author: Administrator
 * @Date:   2017-10-17 19:11:36
 * @Last Modified by:   Administrator
-* @Last Modified time: 2017-10-17 21:08:40
+* @Last Modified time: 2017-10-20 14:12:19
 */
 
 require('./index.css');
@@ -44,7 +44,7 @@ var page = {
         var _this = this;
         this.paymentTimer = window.setInterval(function(){
             _payment.getPaymentStatus(_this.data.orderNumber, function(res){
-                if(res == true){
+                if(res == false){
                     window.location.href
                         = './result.html?type=payment&orderNumber=' + _this.data.orderNumber;
                 }

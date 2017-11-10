@@ -2,11 +2,12 @@
 * @Author: Administrator
 * @Date:   2017-10-05 12:09:53
 * @Last Modified by:   Administrator
-* @Last Modified time: 2017-10-09 20:45:56
+* @Last Modified time: 2017-10-22 13:33:45
 */
 require('./index.css');
 require('page/common/nav/index.js');
 require('page/common/header/index.js');
+require('util/showTip/index.js');
 
 var _product = require('service/product-service.js');
 var _mm = require('util/mm.js');
@@ -90,7 +91,7 @@ var page = {
                 pages : res.pages,
             });
         }, function(errMsg){
-            _mm.errorTips(errMsg);
+            $.showTips.Alert(errMsg);
         });
     },
     //加载分页信息
