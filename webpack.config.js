@@ -2,7 +2,7 @@
 * @Author: Administrator
 * @Date:   2017-09-23 17:28:17
 * @Last Modified by:   Administrator
-* @Last Modified time: 2017-10-21 22:09:17
+* @Last Modified time: 2017-11-10 14:37:15
 */
 
 var webpack = require('webpack');
@@ -30,27 +30,29 @@ var getHtmlConfig = function(name,title){
         chunks : ['common',name]
     }
 }
-var configs = {
+var config = {
     entry: {
-        'common' : './src/page/common/index.js',
-        'index' : './src/page/index/index.js',
-        'list' : './src/page/list/index.js',
-        'detail' : './src/page/detail/index.js',
-        'cart' : './src/page/cart/index.js',
-        'order-confirm' : './src/page/order-confirm/index.js',
-        'order-list' : './src/page/order-list/index.js',
-        'order-detail' : './src/page/order-detail/index.js',
-        'payment' : './src/page/payment/index.js',
-        'user-login' : './src/page/user-login/index.js',
-        'user-register' : './src/page/user-register/index.js',
-        'user-pass-reset' : './src/page/user-pass-reset/index.js',
-        'user-pass-update' : './src/page/user-pass-update/index.js',
-        'user-center' : './src/page/user-center/index.js',
-        'result' : './src/page/result/index.js',
+        'common' : ['./src/page/common/index.js'],
+        'index' : ['./src/page/index/index.js'],
+        'list' : ['./src/page/list/index.js'],
+        'detail' : ['./src/page/detail/index.js'],
+        'cart' : ['./src/page/cart/index.js'],
+        'order-confirm' : ['./src/page/order-confirm/index.js'],
+        'order-list' : ['./src/page/order-list/index.js'],
+        'order-detail' : ['./src/page/order-detail/index.js'],
+        'payment' : ['./src/page/payment/index.js'],
+        'user-login' : ['./src/page/user-login/index.js'],
+        'user-register' : ['./src/page/user-register/index.js'],
+        'user-pass-reset' : ['./src/page/user-pass-reset/index.js'],
+        'user-pass-update' : ['./src/page/user-pass-update/index.js'],
+        'user-center' : ['./src/page/user-center/index.js'],
+        'result' : ['./src/page/result/index.js'],
+        'about' : ['./src/page/about/index.js'],
     },
     output: {
         path: __dirname + '/dist', 
-        publicPath : '/dist',//浏览器访问文件路径 
+        //线上时添加网络路径的前缀
+        publicPath: 'dev' === WEBPACK_ENV ? '/dist/' : '//s.happymmall.com/mmall-fe/dist/',
         filename: 'js/[name].js',
     },
     //全局Jq引用 将html打包生成的文件引用原html的Jq文件引入
@@ -118,8 +120,8 @@ var configs = {
         
     ]
 };
-module.exports = configs;
+module.exports = config;
 
 if( 'dev' === WEBPACK_ENV ){
-    config.common.push('webpack-dev-server/client?http://loacalhost:8888/');
+    config.entry.common.push('webpack-dev-server/client?http://loacalhost:8888/');
 }
